@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="loginregister.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="forms">
+            <div class="form login">
+                <span class="title">ഇൻഷുറൻസ് കാർഡ് ലോഗിൻ</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="നിങ്ങളുടെ കാർഡ് നമ്പർ നൽകുക" required>
+                        <i class="uil-credit-card"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="പാസ്വേഡ് നൽകുക" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="logCheck">
+                            <label for="logCheck" class="text">എന്നെ ഓർക്കുക</label>
+                        </div>
+                        
+                        <a href="#" class="text">പാസ്‌വേഡ് മറന്നു?</a>
+                    </div>
+
+                    <div class="input-field button">
+                        <a href="https://esanjeevani.mohfw.gov.in">
+                        <input type="button" value="ലോഗിൻ">
+                        </a>
+                    </div>
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">അംഗമല്ല?
+                        <a href="#" class="text signup-link">സൈൻ അപ്പ് ചെയ്യുക</a>
+                    </span>
+                </div>
+            </div>
+            <div class="form signup">
+                <span class="title">രജിസ്ട്രേഷൻ</span>
+
+                <form action="#">
+                    <div class="input-field">
+                        <input type="text" placeholder="നിങ്ങളുടെ പേര് നൽകുക" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="text" placeholder="നിങ്ങളുടെ നമ്പര്‍ നൽകുക" required>
+                        <i class="uil uil-envelope icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="ഒരു പാസ്വേഡ് സൃഷ്ടിക്കുക" required>
+                        <i class="uil uil-lock icon"></i>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="password" placeholder="ഒരു പാസ്വേഡ് സ്ഥിരീകരിക്കുക" required>
+                        <i class="uil uil-lock icon"></i>
+                        <i class="uil uil-eye-slash showHidePw"></i>
+                    </div>
+
+                    <div class="checkbox-text">
+                        <div class="checkbox-content">
+                            <input type="checkbox" id="termCon">
+                            <label for="termCon" class="text">ഞാൻ എല്ലാ നിബന്ധനകളും അംഗീകരിച്ചു</label>
+                        </div>
+                    </div>
+
+                    <div class="input-field button">
+                        <a href="https://esanjeevani.mohfw.gov.in">
+                        <input type="button" value="സൈൻ അപ്പ് ചെയ്യുക">
+                        </a>
+                    </div> 
+                </form>
+
+                <div class="login-signup">
+                    <span class="text">ഇതിനകം അംഗമായിരിക്കുന്നു?
+                        <a href="#" class="text login-link">ലോഗിൻ ചെയ്യുക</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const container = document.querySelector(".container"),
+      pwShowHide = document.querySelectorAll(".showHidePw"),
+      pwFields = document.querySelectorAll(".password"),
+      signUp = document.querySelector(".signup-link"),
+      login = document.querySelector(".login-link");
+    pwShowHide.forEach(eyeIcon =>{
+        eyeIcon.addEventListener("click", ()=>{
+            pwFields.forEach(pwField =>{
+                if(pwField.type ==="password"){
+                    pwField.type = "text";
+
+                    pwShowHide.forEach(icon =>{
+                        icon.classList.replace("uil-eye-slash", "uil-eye");
+                    })
+                }else{
+                    pwField.type = "password";
+
+                    pwShowHide.forEach(icon =>{
+                        icon.classList.replace("uil-eye", "uil-eye-slash");
+                    })
+                }
+            }) 
+        })
+    })
+    signUp.addEventListener("click", ( )=>{
+        container.classList.add("active");
+    });
+    login.addEventListener("click", ( )=>{
+        container.classList.remove("active");
+    });
+    </script>
+</body>
+</html>
